@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Любимые лапки — Корзина и оформление</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Unbounded:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header container">
+    <div class="header-brand">
+        <div class="header-logo">
+            <img src="img/logo.png" alt="Логотип" class="logo-icon">
+            <a href="main.html" class="btn-nav btn-yellow">ЛЮБИМЫЕ ЛАПКИ</a>
+        </div>
+    </div>
+        <nav class="header-nav">
+            <a href="catalog.html" class="btn-nav btn-yellow">Каталог</a>
+            <a href="answers.html" class="btn-nav btn-yellow">Ответы на вопросы</a>
+            <a href="payment.html" class="btn-nav btn-yellow">Доставка и контакты</a>
+            <a href="thanks for.html" class="btn-nav btn-yellow">Корзина</a>
+        </nav>
+    </header>
+<body>
+
+<div class="container">
+    <!-- БЛОК КОРЗИНЫ (динамическая) -->
+    <div id="cartDynamicSection" class="cart-section"></div>
+
+    <!-- НОВЫЙ ТЕКСТ 2: Благодарим Вас за заказ! -->
+<h1 class="title-thanks">Благодарим Вас за заказ!</h1>
+
+<!-- НОВЫЙ ТЕКСТ 3: основной текст с контактами -->
+<div class="main-text-contacts">
+    <p>В течение трех дней с Вами свяжется менеджер для уточнения деталей и направит реквизиты для оплаты заказа.</p>
+    <div class="contacts-line">Если у Вас остались вопросы:</div>
+    <div class="contacts-line"><a href="tel:+79780782065">+7 978 078 20 65</a></div>
+    <div class="contacts-line"><a href="tel:+79992115232">+7 999 211 52 32</a></div>
+    <div class="contacts-line"><a href="mailto:love_lapki@gmail.com">love_lapki@gmail.com</a></div>
+    <div class="contacts-line"><a href="https://t.me/love_lapki_tg" target="_blank">@love_lapki_tg</a></div>
+</div>
+
+    <!-- СТРАНИЦА ОФЕРТЫ (скрыта по умолчанию) -->
+    <div id="offerPageContainer" style="display: none;">
+        <div class="offer-page">
+            <h1 class="offer-title">Оферта</h1>
+            <div class="offer-block">
+                <h4>СВЕДЕНИЯ О ПОСТАНОВКЕ НА УЧЕТ В НАЛОГОВОМ ОРГАНЕ:</h4>
+                <div class="offer-text">
+                    ИП "ЛЮБИМЫЕ ЛАПКИ", ИНН: 1656499858, КПП: 165509761, зарегистрировано в Межрайонной инспекции Федеральной налоговой службы № 4 по Санкт-Петербургу.<br>
+                    Юридический адрес: 420111, Санкт-Петербург, ул. Камышовая, д. 8, помещение 2, офис 3.<br>
+                    Банк: ООО "Банк Точка", БИК: 044525104, расчетный счет: 98762810620000068887, корр. счет: 3356710745374525104.
+                </div>
+            </div>
+            <div class="offer-block">
+                <h4>1. ОБЩИЕ ПОЛОЖЕНИЯ</h4>
+                <div class="offer-text">
+                    1.1. Настоящая Политика конфиденциальности разработана ООО "ЛЮБИМЫЕ ЛАПКИ" для исполнения требований 152-ФЗ «О персональных данных».<br>
+                    1.2. Политика распространяется на все отношения, возникающие при обработке персональных данных.<br>
+                    1.3. Оператор самостоятельно организует обработку персональных данных.<br>
+                    1.4. Цели обработки: обработка заявок, заключение договоров, информирование о товарах.<br>
+                    1.5. Категории данных: ФИО, email, телефон, адрес проживания.
+                </div>
+            </div>
+            <div class="offer-block">
+                <h4>2. УСЛОВИЯ ОПЛАТЫ И ДОСТАВКИ</h4>
+                <div class="offer-text">
+                    Цены указаны в рублях. Оплата через интернет-эквайринг. Возврат товара возможен только при обнаружении брака. Срок отправки 2–3 рабочих дня, при отсутствии позиций — до 20 дней.
+                </div>
+            </div>
+            <div class="offer-block">
+                <h4>3. ПРАВА ПОЛЬЗОВАТЕЛЕЙ</h4>
+                <div class="offer-text">
+                    Пользователи могут запросить информацию о своих данных, отправив запрос на love_lapki@gmail.com, а также отозвать согласие на обработку.
+                </div>
+            </div>
+            <div style="margin-top: 30px; text-align: center;">
+                <button class="btn" id="backFromOfferBtn">← Вернуться в каталог</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer container">
+        <a href="main.html" class="btn-footer">ЛЮБИМЫЕ<br>ЛАПКИ</a>
+        <a href="catalog.html" class="btn-footer">каталог</a>
+        <a href="offer.html" class="btn-footer">оферта</a>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            document.querySelectorAll('.scroll-animate-fade, .scroll-animate-left, .scroll-animate-right').forEach(target => observer.observe(target));
+        });
+    </script>
+</body>
+</html>

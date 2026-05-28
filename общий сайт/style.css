@@ -1,0 +1,1078 @@
+/* --- CSS ПЕРЕМЕННЫЕ ДЛЯ СЕТКИ (12 колонок, ширина 80px, отступ 24px = 1224px) --- */
+:root {
+    --col-width: 80px;
+    --gutter: 24px;
+    --container-width: calc((var(--col-width) * 12) + (var(--gutter) * 11)); /* Точно 1224px */
+    
+    --color-pink: #ff9eb5;
+    --color-yellow: #fceb96;
+    --color-text: #1a1a1a;
+    --color-bg: #fdfdfd;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif; /* Обычный читаемый текст */
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+/* Заголовки - шрифт Bounded (Unbounded) */
+h1, h2, h3, .hero-subtitle {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+}
+
+.header-logo {
+    display: flex; /* Включает гибкую верстку */
+    align-items: center; /* Центрирует текст и иконку по вертикали */
+    gap: 10px; /* Устанавливает расстояние между иконкой и текстом */
+}
+
+.logo-icon {
+    width: 40px; /* Укажите нужный размер иконки */
+    height: auto;
+    display: block;
+}
+
+.header-brand-name {
+    white-space: nowrap; /* Гарантирует, что название не разобьется на две строки */
+    font-weight: bold;
+    /* Здесь можно добавить ваш шрифт и размер */
+}
+
+/* --- СЕТКА --- */
+.container {
+    width: var(--container-width);
+    margin: 0 auto;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, var(--col-width));
+    column-gap: var(--gutter);
+}
+
+/* --- КНОПКИ --- */
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+/* Делаем две колонки рядом */
+.top-columns {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px; /* Расстояние между колонками */
+    margin-bottom: 30px;
+}
+
+.info-column {
+    flex: 1; /* Колонки занимают равное пространство */
+}
+
+/* Выравниваем контакты в столбик по центру */
+.contacts-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Центрируем картинку и кнопку каталога */
+.promo-catalog {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.promo-image {
+    max-width: 250px; /* Задайте размер под вашу картинку */
+    border-radius: 20px; /* Скругление углов картинки как на макете */
+    margin-bottom: 20px;
+}
+
+/* Делаем заголовки по центру, как на макете */
+.title-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 15px;
+    text-align: center;
+    background-color: var(--color-pink); /* Светло-розовые пока не нажаты */
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* При наведении желтые */
+.btn:hover {
+    background-color: var(--color-yellow);
+    color: var(--color-text);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(252, 235, 150, 0.4);
+}
+
+/* Исключение для Оформить заказ */
+.btn-yellow {
+    background-color: var(--color-yellow);
+    color: var(--color-text);
+}
+.btn-yellow:hover {
+    background-color: #f5e282; /* Чуть темнее желтый для эффекта */
+}
+
+/* --- ШАПКА (Скругленная) --- */
+.header {
+    background-color: var(--color-pink);
+    border-radius: 40px; /* Скручены в углах */
+    margin-top: 30px;
+    margin-bottom: 50px;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-logo img {
+    display: block;
+    max-height: 40px; 
+    width: auto;
+}
+
+.header-nav {
+    display: flex;
+    gap: 15px;
+    margin-left: 250px;
+}
+
+.btn-nav {
+    background-color: #fff;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #000;
+    white-space: nowrap;
+
+}
+
+.btn-nav:hover {
+    background-color: var(--color-yellow);
+}
+
+/* --- ГЛАВНЫЙ БЛОК --- */
+.hero {
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.hero-left {
+    grid-column: 1 / 6;
+}
+
+.hero-title {
+    font-size: 64px;
+    line-height: 1.1;
+}
+
+.hero-right {
+    grid-column: 7 / 13;
+}
+
+.hero-subtitle {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.hero-description {
+    font-size: 15px;
+    margin-bottom: 25px;
+    max-width: 450px;
+}
+
+.hero-image-wrapper {
+    grid-column: 1 / 13;
+    margin-top: 40px;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- СЕКЦИИ О НАС --- */
+.about, .concept, .process {
+    margin-bottom: 100px;
+    align-items: center;
+}
+
+.text-left { grid-column: 1 / 6; }
+.img-right { grid-column: 7 / 13; }
+
+.img-left { grid-column: 1 / 7; }
+.text-right { grid-column: 8 / 13; }
+
+h2 {
+    font-size: 42px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.about-image img, .concept-image img {
+    width: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+/* --- ПРОЦЕСС --- */
+.process-text ol {
+    padding-left: 20px;
+}
+
+.process-text li {
+    margin-bottom: 12px;
+    font-size: 15px;
+}
+
+.process-images {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.proc-img-1 {
+    width: 100%;
+    border-radius: 20px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.proc-img-row {
+    display: flex;
+    gap: 20px;
+}
+
+.proc-img-row img {
+    width: calc(50% - 10px);
+    border-radius: 20px;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* --- ОТЗЫВЫ --- */
+.reviews-header {
+    margin-bottom: 60px;
+}
+
+.reviews-header-content {
+    grid-column: 3 / 11;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+}
+
+.pink-circle {
+    width: 45px;
+    height: 45px;
+    background-color: var(--color-pink);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    opacity: 0.7;
+    flex-shrink: 0;
+}
+
+.reviews-wrapper {
+    row-gap: 60px;
+    margin-bottom: 60px;
+}
+
+.review-item {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.review-item.left { grid-column: 1 / 8; }
+.review-item.right { grid-column: 6 / 13; align-items: flex-end; }
+
+.review-user {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    max-width: 500px;
+}
+
+.review-item.right .review-user { text-align: right; }
+
+.review-user img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.review-photos { display: flex; gap: 20px; }
+.review-photos img {
+    width: 250px;
+    height: 250px;
+    border-radius: 20px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+.review-photos img:hover { transform: scale(1.03); }
+
+.reviews-actions {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.contacts-info {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* --- ПОДВАЛ (Скругленный) --- */
+.footer {
+    background-color: var(--color-pink);
+    border-radius: 40px; /* Скручены в углах */
+    margin-top: 50px;
+    margin-bottom: 30px;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-footer {
+    background-color: #fff;
+    padding: 8px 25px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.btn-footer:hover {
+    background-color: var(--color-yellow);
+}
+
+/* --- АНИМАЦИИ --- */
+.scroll-animate-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+.scroll-animate-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.scroll-animate-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.animated {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+/* --- ДОПОЛНЕНИЯ ДЛЯ СТРАНИЦЫ FAQ И ГАРАНТИЙ --- */
+
+.header-brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-brand-name {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.page-title {
+    font-size: 48px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.page-subtitle {
+    font-size: 16px;
+    color: #4a4a4a;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+/* Блок FAQ и Гарантий */
+.faq-section, .guarantees-section {
+    margin-bottom: 80px;
+}
+
+.faq-row, .guarantees-row {
+    margin-bottom: 60px;
+    align-items: center;
+}
+
+.faq-text h2 {
+    font-size: 26px;
+    margin-bottom: 0; /* Отступ контролируется оберткой */
+}
+
+.faq-text p {
+    font-size: 15px;
+    color: #4a4a4a;
+}
+
+.faq-image img {
+    width: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+    max-height: 350px;
+}
+
+/* Точки у заголовков */
+.dot-heading {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.pink-dot { background-color: var(--color-pink); }
+.yellow-dot { background-color: var(--color-yellow); }
+
+/* Гарантии */
+.guarantees-header {
+    margin-bottom: 60px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.guarantees-list {
+    padding-left: 20px;
+    font-size: 15px;
+    color: #4a4a4a;
+}
+
+.guarantees-list li {
+    margin-bottom: 12px;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.return-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Выравнивание по правому краю */
+}
+
+.arrow-down {
+    font-size: 40px;
+    font-weight: 300;
+    margin: 15px 0 25px 0;
+    color: #1a1a1a;
+}
+
+/* Контакты перед футером */
+.pre-footer-contacts {
+    margin-bottom: 50px;
+    font-weight: 500;
+}
+
+.pre-footer-contacts p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Обновление стиля футера для соответствия новому макету */
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px; /* Увеличили расстояние между ссылками */
+}
+
+.footer .btn-footer {
+    background-color: transparent; /* В макете у кнопок футера фон розовый, как у подвала. Сделаем их плашками при наведении */
+    padding: 10px 30px;
+    border-radius: 30px;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #fceb96; /* Желтый фон по умолчанию, или светлый */
+}
+
+.footer .btn-footer:nth-child(2),
+.footer .btn-footer:nth-child(3) {
+   background-color: #ffb8c9; /* Светло розовый на фоне основного */
+}
+
+.footer .btn-footer:hover {
+    background-color: var(--color-yellow);
+    transform: translateY(-2px);
+}
+/* КАТАЛОГ */
+.catalog-hero {
+    margin-top: 40px;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.catalog-info,
+.catalog-order-action {
+    opacity: 0;
+    animation: slideUp 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
+}
+
+/* Кнопка и подпись появляются чуть позже текста */
+.catalog-order-action {
+    animation-delay: 0.2s;
+}
+
+/* Контейнер для трёх картинок — центрируем и выстраиваем в ряд */
+.image-row {
+    display: flex;
+    justify-content: center;  /* горизонтальное центрирование */
+    align-items: center;      /* вертикальное центрирование */
+    gap: 20px;                /* расстояние между картинками */
+    flex-wrap: wrap;          /* адаптив: на узких экранах картинки переносятся */
+    max-width: 1200px;
+    margin: 0 auto;           /* центрирование самого блока */
+    padding: 20px;
+}
+
+.image-row {
+    animation: slideUp 1s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(80px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Сами картинки — чтобы не вылезали за пределы и сохраняли пропорции */
+.image-row img {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    max-height: 300px;        /* при необходимости ограничьте высоту */
+    object-fit: contain;
+    display: block;
+}
+
+.btn-order-main {
+    background: var(--color-yellow);
+    padding: 20px 40px;
+    border-radius: 50px;
+    font-family: 'Unbounded';
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    color: #000;
+}
+
+/* СЕТКА ТОВАРОВ */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.product-card {
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 30px;
+    margin-bottom: 15px;
+}
+
+.product-card h3 { font-family: 'Inter'; font-size: 16px; font-weight: 600; }
+.product-card .price { font-family: 'Unbounded'; font-weight: 700; font-size: 22px; margin: 10px 0; }
+.product-card .desc { font-size: 13px; color: #666; line-height: 1.4; }
+
+/* КАРТОЧКА ТОВАРА - ДЕТАЛЬНО */
+.product-main-info {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 24px;
+    margin-top: 40px;
+}
+
+.product-main-image img {
+    width: 100%;
+    border-radius: 40px;
+}
+
+.product-description-box {
+    background-color: #ffdce5; /* Нежно-розовый из макета */
+    border-radius: 40px;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.product-name { font-family: 'Unbounded'; font-size: 32px; margin-bottom: 25px; }
+.btn-order-pill {
+    background: #fff;
+    padding: 15px 40px;
+    border-radius: 40px;
+    font-family: 'Unbounded';
+    font-weight: 700;
+    text-align: center;
+    margin-top: 30px;
+    transition: background 0.3s;
+}
+.btn-order-pill:hover { background: var(--color-yellow); }
+
+/* Фото товара – всплывает первым */
+.product-main-image {
+    opacity: 0;
+    animation: slideUp 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
+}
+
+/* Карточка с описанием (розовый блок) – всплывает следом */
+.product-description-box {
+    opacity: 0;
+    animation: slideUp 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
+    animation-delay: 0.15s;
+}
+
+/* Кнопка «Оформить заказ» – всплывает внутри карточки, чуть позже */
+.btn-order-pill {
+    opacity: 0;
+    animation: slideUp 0.5s ease-out forwards;
+    animation-delay: 0.35s;
+}
+
+
+/* ГАЛЕРЕЯ */
+.gallery-section { margin-top: 80px; text-align: center; }
+.gallery-images {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+.gallery-images img {
+    width: 280px;
+    height: 280px;
+    border-radius: 30px;
+    object-fit: cover;
+}
+
+/* Базовое состояние: скрыты и сдвинуты вниз */
+.gallery-title,
+.photo-row,
+.photo-row img {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+/* Когда элемент получает класс .visible — всплывает */
+.gallery-title.visible,
+.photo-row.visible,
+.photo-row img.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Небольшая задержка для фото, если хотите последовательное появление */
+.photo-row img:nth-child(2).visible {
+    transition-delay: 0.15s;
+}
+.photo-row img:nth-child(3).visible {
+    transition-delay: 0.3s;
+}
+ 
+ /* Список товаров в корзине */
+.cart-items {
+     background: #ffffff;
+            border-radius: 48px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 12px 28px solid #ff9eb5;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            padding: 20px 0;
+            border-bottom: 1px solid #000;
+            flex-wrap: wrap;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 20px;
+            background: #ffffff;
+        }
+
+        .cart-item-info {
+            flex: 2;
+            min-width: 180px;
+        }
+
+         .cart-item-add {
+            background: #ffdce5;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-family: 'Unbounded', cursive;
+            font-size: 0.8rem;
+            color: #000;
+            transition: 0.2s;
+        }
+
+        .cart-item-add:hover {
+            background: #fceb96;
+        }
+
+        .cart-item-title {
+            font-family: 'Unbounded', cursive;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #000;
+            margin-bottom: 5px;
+        }
+
+        .cart-item-price {
+            font-weight: 600;
+            color: #ff9eb5;
+        }
+
+        .remove-item-btn {
+            background: #ffdce5;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-family: 'Unbounded', cursive;
+            font-size: 0.8rem;
+            color: #000;
+            transition: 0.2s;
+        }
+
+        .remove-item-btn:hover {
+            background: #fceb96;
+        }
+
+        .cart-summary {
+            text-align: right;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px dashed #ffffff;
+            font-family: 'Unbounded', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #000;
+        }
+
+        /* Форма */
+        .info-section {
+            background: white;
+            border-radius: 48px;
+            padding: 35px 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+        }
+
+        .input-row {
+            margin: 28px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .input-row label {
+            font-weight: 600;
+            font-family: 'Unbounded', cursive;
+            font-size: 0.85rem;
+            color: #000;
+            letter-spacing: 0.5px;
+        }
+
+        .input-field {
+            width: 100%;
+            max-width: 450px;
+            padding: 14px 18px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            border: 1.5px solid #ff9eb5;
+            border-radius: 32px;
+            background: #ffffff;
+            outline: none;
+        }
+
+        .input-field:focus {
+            border-color: #ff9eb5;
+            box-shadow: 0 0 0 3px  #ff9eb5;
+        }
+
+        .select-field {
+            width: 100%;
+            max-width: 450px;
+            padding: 14px 18px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            border: 1.5px solid #ff9eb5;
+            border-radius: 32px;
+            background: #ffffff;
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23a5712c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+            background-repeat: no-repeat;
+            background-position: right 18px center;
+        }
+
+        .order-btn-bottom {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 466px;
+            max-width: 90%;
+            font-family: 'Bounded', 'Unbounded', cursive;
+            font-size: 32px;
+            font-weight: 500;
+            text-align: center;
+            color: #000;
+            background: #fceb96;
+            border: none;
+            border-radius: 60px;
+            padding: 12px 20px;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            z-index: 100;
+        }
+
+        .order-btn-bottom:hover {
+            background: #ff9eb5;
+        }
+
+        @media (max-width: 700px) {
+            .container {
+                padding: 0 20px;
+            }
+            .order-btn-bottom {
+                font-size: 24px;
+                width: 90%;
+            }
+            .cart-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        /* Контент оферты */
+        .offer-content {
+            background: #FFFFFF;
+            border-radius: 48px;
+            padding: 48px 56px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+        }
+
+        .offer-content h1 {
+            font-family: 'Unbounded', cursive;
+            font-weight: 800;
+            font-size: 2rem;
+            color: #000;
+            margin-bottom: 24px;
+            letter-spacing: -0.3px;
+            border-left: 6px solid #ff9eb5;
+            padding-left: 20px;
+        }
+
+        .offer-content h2 {
+            font-family: 'Unbounded', cursive;
+            font-weight: 600;
+            font-size: 1.4rem;
+            margin: 32px 0 16px 0;
+            color: #000;
+        }
+
+        .offer-content h3 {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin: 24px 0 10px 0;
+            color: #000;
+        }
+
+        .offer-content p {
+            line-height: 1.65;
+            margin-bottom: 16px;
+            font-size: 1rem;
+            color: #000;
+        }
+
+        .offer-content ul, .offer-content ol {
+            margin: 12px 0 20px 30px;
+        }
+        .offer-content li {
+            margin: 8px 0;
+            line-height: 1.55;
+        }
+
+        .offer-content strong {
+            color: #000;
+        }
+
+        .offer-footer-note {
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 2px dashed #fceb96;
+            font-style: italic;
+            color: #000;
+            text-align: center;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            background: #ffb8c9;
+            padding: 10px 28px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-family: 'Unbounded', cursive;
+            font-weight: 500;
+            color: #000;
+            transition: 0.2s;
+        }
+        .back-link:hover {
+            background: #ff9eb5;
+            transform: translateX(-4px);
+        }
+
+        @media (max-width: 750px) {
+            .container {
+                padding: 0 20px;
+            }
+            .offer-content {
+                padding: 28px 24px;
+            }
+            .offer-content h1 {
+                font-size: 1.6rem;
+            }
+            .header-nav {
+                gap: 12px;
+                margin-top: 12px;
+            }
+        }
+  
+  .catalog-btn-large {
+            font-family:'Unbounded';
+            font-size: 32px;
+            font-weight: 500;
+            text-align: center;
+            color: #1a1a1a;
+            background: #fceb96;
+            border: none;
+            border-radius: 40px;
+            padding: 12px 20px;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            z-index: 200;
+            transition: 0.2s;
+            margin-top: 30px;
+        }
+
+        .catalog-btn-large:hover {
+            background: #ff9eb5;
+        }
+    
+        .title-section {
+            font-family:'Unbounded', sans-serif;
+            font-size: 40px;
+            text-align: center;
+            color: #1a1a1a;
+            cursor: pointer;
+            margin-top: 40px;
+            margin-bottom: 40px
+        }
+
+    

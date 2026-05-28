@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Каталог - Любимые лапки</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header container">
+    <div class="header-brand">
+        <div class="header-logo">
+            <img src="img/logo.png" alt="Логотип" class="logo-icon">
+            <a href="main.html" class="btn-nav btn-yellow">ЛЮБИМЫЕ ЛАПКИ</a>
+        </div>
+    </div>
+        <nav class="header-nav">
+            <a href="catalog.html" class="btn-nav btn-yellow">Каталог</a>
+            <a href="answers.html" class="btn-nav btn-yellow">Ответы на вопросы</a>
+            <a href="payment.html" class="btn-nav btn-yellow">Доставка и контакты</a>
+            <a href="thanks for.html" class="btn-nav btn-yellow">Корзина</a>
+        </nav>
+    </header>
+    
+    <main class="container product-detail-page">
+    <section class="product-main-info grid">
+        <div class="product-main-image">
+            <img src="item 1/Frame 11.png" alt="Товар">
+        </div>
+        <div class="product-description-box">
+            <h1 class="product-name">«Розовая мечта»</h1>
+            <div class="product-text">
+                <p>Розовый браслет с прозрачной лапкой из эпоксидной смолы внутри. Нежный аксессуар, чтобы носить с собой память о любимице.</p>
+                <p>Идеально смотрится с сухоцветами и дарит уют. Для вас или в подарок любимой кошатнице.</p>
+            </div>
+            <a href="shopping cart-dream.html" class="btn-order-pill">Оформить заказ</a>
+        </div>
+    </section>
+
+   <section class="gallery-section">
+     <h2 class="gallery-title">Больше фотографий:</h2>
+     <div class="photo-row">
+         <img src="item 1/Frame 12.png" alt="фото 1">
+         <img src="item 1/Frame 13.png" alt="фото 2">
+         <img src="item 1/Frame 14.png" alt="фото 3">
+     </div>
+    </section>
+</main>
+
+ <footer class="footer container scroll-animate-fade">
+        <a href="main.html" class="btn-footer">ЛЮБИМЫЕ<br>ЛАПКИ</a>
+        <a href="catalog.html" class="btn-footer">каталог</a>
+        <a href="offer.html" class="btn-footer">оферта</a>
+    </footer>
+
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            document.querySelectorAll('.scroll-animate-fade, .scroll-animate-left, .scroll-animate-right').forEach(target => observer.observe(target));
+        });
+    </script>
+
+    <script>
+    // Наблюдатель за появлением элементов при скролле
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                // Можно отключить наблюдение после появления, чтобы не тратить ресурсы
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 }); // Сработает, когда 20% элемента видно
+
+    // За какими элементами следить
+    const elementsToObserve = document.querySelectorAll('.gallery-title, .photo-row, .photo-row img');
+    elementsToObserve.forEach(el => observer.observe(el));
+</script>
+</body>
+
+</html>
