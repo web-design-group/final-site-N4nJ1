@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Каталог - Любимые лапки</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header container">
+    <div class="header-brand">
+        <div class="header-logo">
+            <img src="img/logo.png" alt="Логотип" class="logo-icon">
+            <a href="main.html" class="btn-nav btn-yellow">ЛЮБИМЫЕ ЛАПКИ</a>
+        </div>
+    </div>
+        <nav class="header-nav">
+            <a href="catalog.html" class="btn-nav btn-yellow">Каталог</a>
+            <a href="answers.html" class="btn-nav btn-yellow">Ответы на вопросы</a>
+            <a href="payment.html" class="btn-nav btn-yellow">Доставка и контакты</a>
+            <a href="thanks for.html" class="btn-nav btn-yellow">Корзина</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="catalog-hero grid">
+            <div class="catalog-info">
+                <h1 class="page-title">Каталог</h1>
+                <p>«Любимые лапки» создают украшения из эпоксидной смолы с отпечатком лапки вашего питомца. Неважно, собака у вас или кошка — мы сохраним этот нежный след на память.</p>
+                <p>В каталоге есть браслеты, брелки и колечки на любой вкус. Выбирайте, что ближе, и носите трогательную связь с любимцем с собой!</p>
+            </div>
+            <div class="catalog-order-action">
+                <a href="#" class="btn-order-main">Оформить заказ</a>
+                <p class="small-note">Нажмите сюда для оформления вашего уникального украшения!</p>
+            </div>
+        </section>
+
+        <section class="image-row">
+             <img src="catalog img/Frame 1.png" alt="Бренд">
+             <img src="catalog img/Frame 2.png" alt="Бренд">
+              <img src="catalog img/Frame 3.png" alt="Кольцо">
+        </section>
+
+        <section class="product-grid">
+            <a href="product-lavend.html" class="product-card">
+                <img src="catalog img/Frame 4.png" alt="Лавандовая нежность">
+                <h3>Брелок с блёстками «Лавандовая нежность»</h3>
+                <p class="price">4500 руб.</p>
+                <p class="desc">Изготовлен из эпоксидной смолы с добавлением блёсток, оснащён надёжным кольцом и фурнитурой.</p>
+            </a>
+            <a href="product-shining.html" class="product-card">
+                <img src="catalog img/Frame 5.png" alt="Сияющая любовь">
+                <h3>Перламутровый браслет «Сияющая любовь»</h3>
+                <p class="price">5000 руб.</p>
+                <p class="desc">Создан из эпоксидной смолы с перламутровым пигментом, прочная браслетная основа.</p>
+            </a>
+            <a href="product-precious.html" class="product-card">
+                <img src="catalog img/Frame 6.png" alt="Ценные моменты">
+                <h3>Минималистичное кольцо «Ценные моменты»</h3>
+                <p class="price">3900 руб.</p>
+                <p class="desc">Изготовлено из прозрачной эпоксидной смолы и гипоаллергенной металлической основы.</p>
+            </a>
+            </section>
+
+            <section class="product-grid">
+            <a href="product-lavender.html" class="product-card">
+                <img src="catalog img/Frame 7.png" alt="Самое ценное">
+                <h3>Минималистичный брелок «Самое ценное» </h3>
+                <p class="price">4500 руб.</p>
+                <p class="desc">Выполнен из высококачественной эпоксидной смолы с надёжной металлической фурнитурой.</p>
+            </a>
+            <a href="product_dream.html" class="product-card">
+                <img src="catalog img/Frame 9.png" alt="Розовая мечта">
+                <h3>Браслет в пастельных тонах «Розовая мечта»</h3>
+                <p class="price">5000 руб.</p>
+                <p class="desc">Создан из эпоксидной смолы с пастельными пигментами и прочной браслетной основы.</p>
+            </a>
+            <a href="product-pres.html" class="product-card">
+                <img src="catalog img/Frame 8.png" alt="Любимый след">
+                <h3>Кольцо с матовым покрытием «Любимый след»</h3>
+                <p class="price">3900 руб.</p>
+                <p class="desc">Выполнено из эпоксидной смолы с матовым покрытием, не вызывает раздражения.</p>
+            </a>
+            </section>
+    </main>
+
+    <footer class="footer container scroll-animate-fade">
+        <a href="main.html" class="btn-footer">ЛЮБИМЫЕ<br>ЛАПКИ</a>
+        <a href="catalog.html" class="btn-footer">каталог</a>
+        <a href="offer.html" class="btn-footer">оферта</a>
+    </footer>
+
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            document.querySelectorAll('.scroll-animate-fade, .scroll-animate-left, .scroll-animate-right').forEach(target => observer.observe(target));
+        });
+    </script>
+</body>
+
+</html>
